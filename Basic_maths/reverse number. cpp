@@ -4,8 +4,8 @@ public:
         if (x < 0) 
             return false;
         
-        int original_x = x;
-        int rev_num = 0;
+        long long original_x = x;
+        long long rev_num = 0;
         
         while (x) {
             int last_digit = x % 10;
