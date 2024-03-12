@@ -40,6 +40,15 @@ void print4(int n){
 void print5(int n){
 	for(int i=1; i<=n; i++){
 		for(int j=1; j<=n-i+1;j++){
+			cout<<"* ";
+		}
+		cout<<endl;
+	}
+}
+
+void print6(int n){
+	for(int i=1; i<=n; i++){
+		for(int j=1; j<=n-i+1;j++){
 			cout<<j;
 		}
 		cout<<endl;
@@ -53,7 +62,7 @@ int main(){
 	for(int i=0; i<t; i++){
 		int n;
 		cin>>n;
-		print5(n);
+		print6(n);
 
 	}
 	return 0;
