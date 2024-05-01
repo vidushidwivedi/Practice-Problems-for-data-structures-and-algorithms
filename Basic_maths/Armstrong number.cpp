@@ -1,14 +1,19 @@
-int calcGCD(int n, int m){
-    while(n>0 && m>0){
-        if(n>m){
-            n= n%m;
-        }
-        else{
-            m= m%n;
-        }
+#include <bits/stdc++.h>
+using namespace std;
+
+bool checkArmstrong(int n) {
+    int count = 0;
+    int original_num = n;
+    int result = 0;
+    int l =to_string(n).length();
+    
+    while (n > 0) {
+
+        int last_number = n % 10;
+        n = n / 10;
+        result += pow(last_number, l);
     }
-    if(n==0){
-        return m;
-    }
-    return n;
+    
+    return original_num == result;
 }
+
