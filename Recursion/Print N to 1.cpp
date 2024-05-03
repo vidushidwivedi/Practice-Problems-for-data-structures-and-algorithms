@@ -1,22 +1,19 @@
-#include<bits/stdc++.h>
-using namespace std;
+ vector<int> ans;
 
-void func(int i, int n){
-   
-   // Base Condition.
-   if(i<1) return;
-   cout<<i<<endl;
+void print(int i,int n){
 
-   // Function call to print i till i decrements to 1.
-   func(i-1,n);
+    if(i>n) return;
+
+    print(i+1,n);
+
+    ans.push_back(i);
 
 }
 
-int main(){
-  
-  // Here, let’s take the value of n to be 4.
-  int n = 4;
-  func(n,n);
-  return 0;
+vector<int> printNos(int x) {
+
+   print(1,x);
+
+   return ans;
 
 }
