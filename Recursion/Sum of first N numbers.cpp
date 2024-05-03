@@ -1,14 +1,20 @@
-#include<bits/stdc++.h>
-using namespace std;
- void solve(int n) {
-    int sum = 0;
-    for (int i = 1; i <= n; i++) {
-      sum += i;
-    }
-    cout<<"The sum of the first "<<n<<" numbers is: "<<sum<<endl;
-  }
- int main() {
+//parameterised recursion
+// long long sumN(long long i, long long sum){
+//     if(i<1){;
+//         return sum;
+//     }
+//     return sumN(i-1, sum+i);
+// }
 
-    solve(5);
-    solve(6);
-  }
+// long long sumFirstN(long long n) {
+//     return sumN(n, 0);
+// }
+
+//functional recursion
+
+long long sumFirstN(long long n){
+    if(n==0){
+        return n;
+    }
+    return n + sumFirstN(n-1);
+}
