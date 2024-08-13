@@ -216,6 +216,43 @@ void print18(int n){
 	}
 }
 
+void print19(int n){
+	for (int i=0; i<n; i++){
+		for (int j=0; j<n-i; j++){
+			cout<<"*";
+		}
+
+		for (int j=0; j<2*i; j++){
+			cout<<" ";
+		}
+
+
+		for (int j=0; j<n-i; j++){
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+}
+
+
+void print19_ii(int n){
+
+	for (int i=0; i<n; i++){
+		for (int j=0; j<i+1; j++){
+			cout<<"*";
+		}
+
+		for (int j=8; j>2*i;j--){
+			cout<<" ";
+		}
+
+		for (int j=0; j<i+1; j++){
+			cout<<"*";
+		}
+
+		cout<<endl;
+	}
+}
 
 int main(){
 	int t;
@@ -223,6 +260,7 @@ int main(){
 	for (int i=0; i<t;i++){
 		int n; 
 		cin >> n;
-		print18(n);
+		print19(n);
+        print19_ii(n);
 	}	
 }
