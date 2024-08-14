@@ -300,6 +300,10 @@ void print21(int n){
 	}
 }
 
+void print22(int n){
+	
+}
+
 int main(){
 	int t;
 	cin>>t;
