@@ -1,4 +1,6 @@
 //{ Driver Code Starts
+#define _USE_MATH_DEFINES  // Enable math constants
+#include <cmath>
 #include<bits/stdc++.h>
 using namespace std;
 
