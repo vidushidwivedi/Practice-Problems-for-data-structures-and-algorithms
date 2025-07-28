@@ -119,7 +119,7 @@ void print11(int n){
 		}
 		for (int j=0; j<=i; j++){
 			cout<<start;
-			start= 1-start;
+			start= 1-start;//flip 1-0 or 0-1
 		}
 		cout<<endl;
 	}
