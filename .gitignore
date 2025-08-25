@@ -1,0 +1,11 @@
+# Ignore compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# Ignore VS Code temp runner
+tempCodeRunnerFile.cpp
+# Ignore compiled binaries
+*.exe
+
