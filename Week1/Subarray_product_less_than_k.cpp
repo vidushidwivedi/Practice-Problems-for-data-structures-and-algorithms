@@ -2,16 +2,6 @@
 using namespace std;
 
 //BRUTE FORCE
-//problem: error1- “The product of this subarray got so huge that it didn’t fit in long long anymore.”
-// solution: sol1- for (int i = 0; i < n; i++) {
-//     long long product = 1;
-//     for (int j = i; j < n; j++) {
-//         if ((long double)product * nums[j] >= k) break; // stop early
-//         product *= nums[j];
-//         count++;
-//     }
-// }
-
 int numSubarrayProductLessThanK (vector<int> & nums, int k){
     int n= nums.size();
     int count= 0; //in order to show the count of the arrays
@@ -31,6 +21,23 @@ int numSubarrayProductLessThanK (vector<int> & nums, int k){
     }
     return count;
 }
+//tc= o(n^3)
+
+// BETTER SOLUTION
+//in the above, code that's BF but one error will occur which is stated below:
+
+//problem: error1- “The product of this subarray got so huge that it didn’t fit in long long anymore.”
+//solving this error will give us the better solution
+
+// solution: sol1- for (int i = 0; i < n; i++) {
+//     long long product = 1;
+//     for (int j = i; j < n; j++) {
+//         if ((long double)product * nums[j] >= k) break; // stop early
+//         product *= nums[j];
+//         count++;
+//     }
+// }
+//tc= o(n^2)
 
 int main() {
     vector<int> nums = {10, 5, 2, 6};
