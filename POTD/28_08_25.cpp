@@ -1,51 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int n;
 
-    //ask the interviewer: can you modify the input?
-    // then only modify the input as we're doing the same only which is 'grid'
-    // if he doesn't allowed to do so then make changes in the 2d array
-    void sortDiagonal (int r, int c, vector<vector<int>>& grid, bool asc){
-        vector<int> vec; //diagonal elements starting from r and c
+    // ask the interviewer: can you modify the input?
+    // if not, create a copy instead of editing `grid` directly
+    void sortDiagonal (int r, int c, vector<vector<int>>& grid, bool asc) {
+        vector<int> vec; // diagonal elements starting from (r, c)
 
-        int i= r;
-        int j= c;
+        int i = r;
+        int j = c;
 
-        while (i<n && j<n){
+        while (i < n && j < n) {
             vec.push_back(grid[i][j]);
             i++;
-            j++; //imp to remember in order to find the next diagonal elements
+            j++; // important to move along the diagonal
         }
 
-        if(asc){
+        if (asc) {
             sort(vec.begin(), vec.end());
-        }
-        else{
+        } else {
             sort(vec.rbegin(), vec.rend());
         }
 
-        i= r;
-        j= c;
-        //jaha se ye diagonal elements start huey the bs unki jagah sorted elements lgane hai
-        for (int &val: vec){
-            grid[i][j]= val;
+        i = r;
+        j = c;
+        // replace with sorted elements
+        for (int &val : vec) {
+            grid[i][j] = val;
             i++;
             j++;
         }
     }
+
     vector<vector<int>> sortMatrix(vector<vector<int>>& grid) {
-        n= grid.size();
+        n = grid.size();
 
-        //Bottom Left- Non increasing order
-        for (int row=0; row<n; row++){// first diagonal index started with 0
+        // Bottom-left (including main diagonal): non-increasing order
+        for (int row = 0; row < n; row++) {
             sortDiagonal(row, 0, grid, false);
-        } 
+        }
 
-        //Top Right- increasing order
-        for (int col=1; col<n; col++){ //column started with 1 index
+        // Top-right: non-decreasing order
+        for (int col = 1; col < n; col++) {
             sortDiagonal(0, col, grid, true);
-        } 
+        }
 
         return grid;
     }
 };
+
+int main() {
+    Solution sol;
+
+    // Example input
+    vector<vector<int>> grid = {
+        {1, 7, 3},
+        {9, 8, 2},
+        {4, 5, 6}
+    };
+
+    vector<vector<int>> ans = sol.sortMatrix(grid);
+
+    cout << "Sorted Matrix by Diagonals:\n";
+    for (auto &row : ans) {
+        for (auto &x : row) {
+            cout << x << " ";
+        }
+        cout << "\n";
+    }
+
+    return 0;
+}
