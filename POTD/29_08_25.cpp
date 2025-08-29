@@ -1,3 +1,6 @@
+//Approach - Using simple maths
+//T.C : O(1)
+//S.C : O(1)
 class Solution {
 public:
     long long flowerGame(int n, int m) {
