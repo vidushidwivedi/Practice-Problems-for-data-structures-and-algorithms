@@ -1,6 +1,9 @@
 //Approach (Using Sorting - Approach-2 of Find the Number of Ways to Place People I in my video)
 //T.C : O(n^2)
 //S.C : O(1)
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int numberOfPairs(vector<vector<int>>& points) {
