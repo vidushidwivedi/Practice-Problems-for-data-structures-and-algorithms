@@ -1,6 +1,9 @@
 //Approach-1 - Maths derivation
 //T.C : O(log(num1)) upper bound
 //S.C : O(1)
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int makeTheIntegerZero(int num1, int num2) {
