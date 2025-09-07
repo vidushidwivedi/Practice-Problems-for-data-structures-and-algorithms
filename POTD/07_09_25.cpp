@@ -1,6 +1,8 @@
 // //Approach-1 (iterate linear)
 // //T.C : O(n) 
 // //S.C : O(1)
+#include <bits/stdc++.h>
+using namespace std;
 // class Solution {
 // public:
 //     vector<int> sumZero(int n) {
