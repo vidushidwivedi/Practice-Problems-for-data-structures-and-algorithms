@@ -26,3 +26,30 @@ using namespace std;
 // };
 //TC: nlogn
 //sc: o(1)
+
+//optimal approach
+
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        //declare the a and b first
+        int a=n;
+        int b=0;
+        int placeValue= 1;
+        //a+b=n
+        while (n>1){
+            int take=1;
+            if (n%10==1){
+                take =2;
+            }
+            a= a-take*placeValue;
+            b= b+take*placeValue;
+            n= (n-take)/10;
+            placeValue*= 10;
+        }
+        return {a,b};
+    }
+
+};
+//tc: O(log n)
+//sc: O(1)
