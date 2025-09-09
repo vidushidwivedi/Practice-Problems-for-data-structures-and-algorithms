@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Approach-1 - Recursion + Memoization
+//T.C : O(n*(forget-delay))
+//S.C : O(n)
+
 class Solution {
 public:
     int MOD = 1e9 + 7;
