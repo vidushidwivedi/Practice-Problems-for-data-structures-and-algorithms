@@ -3,32 +3,44 @@ using namespace std;
 
 class Solution {
 public:
-    int M = 1e9+7;
+    int minimumTeachings(int n, vector<vector<int>>& languages, vector<vector<int>>& friendships) {
+        //created a list or set of sad users
+        unordered_set <int> sadUsers;
 
-    int peopleAwareOfSecret(int n, int delay, int forget) {
-        vector<int> t(n+1);
-        // t[day] = number of people who learn the secret on "day"
+        for (auto &friends : friendships){ //jo friends de rkhe hai friendship mein, 
+            //me har ek friend ke paas jaungi
+            int u= friends[0] - 1; //convert this to 0 based indexing
+            int v= friends[1] - 1;
 
-        t[1] = 1;
-
-        for(int day = 2; day <= n; day++) {
-            long long count = 0;
-            for(int prev = day - forget+1; prev <= day - delay; prev++) {
-                if(prev > 0) {
-                    count = (count + t[prev]) % M;
+            // u ke sare languages ko dal denge
+            // since, u is the vector of vector isilye begin and end lgaya
+            unordered_set <int> langSet(begin(languages[u]), end(languages[u]));
+            bool canTalk= false;
+            for (int lang: languages[v]){
+            // check krenge kya koi esa lang hai vo v ke languages ke sath intersect krta ho
+                if (langSet.count(lang)){ 
+                    canTalk= true;
+                    break; //ek bhi common language milgya toh vahi se break kr sakte hai, 
+                    //aage check krne ki zrurat hi nhi hai
                 }
             }
-            t[day] = count;
+            // can they canTalk, if not then they are sad users
+            if (!canTalk){
+                sadUsers.insert(u);
+                sadUsers.insert(v);
+            }
         }
+        //find max known languages among sad users
+        vector <int> language (n+1, 0); //there are n lang and count abhi 0 hai
+        int mostknowLang= 0;
 
-        int result = 0;
-        for(int day = n-forget+1; day <= n; day++) {
-            if(day > 0) {
-                result = (result + t[day]) % M;
+        for (int user: sadUsers){
+            for (int lang: languages[user]){
+                language[lang]++;
+                mostknowLang= max(mostknowLang, language[lang]);
             }
         }
 
-        return result;
-        
+        return sadUsers.size()-mostknowLang;
     }
 };
