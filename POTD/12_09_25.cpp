@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     bool doesAliceWin(string s) {
@@ -16,7 +19,7 @@ public:
             //aeiou is the fixed length
           }; // remember to put ";"
 
-          
+
 
         return any_of(begin(s), end(s), lambda); //STL 
     }
