@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     unordered_set<string> exactWords;          // stores original words
