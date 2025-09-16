@@ -1,17 +1,16 @@
-//Approach (Using vector as a stack)
-//T.C : O(n * log(x)), where log comes from GCD
-//S.C : O(1)
 #include <bits/stdc++.h>
 using namespace std;
+
+int gcd(int a, int b) {   // ✅ works in all C++ versions
+    return b == 0 ? a : gcd(b, a % b);
+}
 
 class Solution {
 public:
     vector<int> replaceNonCoprimes(vector<int>& nums) {
-        vector<int> result; //or you can use a stack
+        vector<int> result; 
 
-        //Processing left to right
         for(int num : nums) {
-
             while(!result.empty()) {
                 int prev = result.back();
                 int curr = num;
@@ -24,9 +23,9 @@ public:
                 result.pop_back();
                 int LCM = prev / GCD * curr;
 
-                num = LCM; //merged number
+                num = LCM; 
             }
-            result.push_back(num); //merged num put back to result
+            result.push_back(num);
         }
         return result;
     }
