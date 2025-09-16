@@ -1,6 +1,9 @@
 //Approach (Using vector as a stack)
 //T.C : O(n * log(x)), where log comes from GCD
 //S.C : O(1)
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     vector<int> replaceNonCoprimes(vector<int>& nums) {
