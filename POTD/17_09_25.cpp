@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class FoodRatings {
 public:
     unordered_map<string, set<pair<int, string>>> cuisine_ratings_food;
